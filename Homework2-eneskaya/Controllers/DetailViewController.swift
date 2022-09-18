@@ -17,6 +17,7 @@ class DetailViewController: UIViewController {
     var selectedImageView = UIImage()
     var selectedNews : String = ""
     var selectedTag : Int = 0
+    var selectedTitle : String = ""
     var selectedDetail : String = ""
     var stringValue: String?
     var titleValue: String?
@@ -24,6 +25,7 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationItem.title = selectedTitle
         
         detailLabel.text = selectedDetail
         imageView.image = selectedImageView

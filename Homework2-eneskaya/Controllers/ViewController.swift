@@ -49,6 +49,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         vc?.selectedImageView = newsModel[indexPath.row].newsImages
         vc?.selectedTag = indexPath.row
         vc?.selectedDetail = newsModel[indexPath.row].newsDetails
+        vc?.selectedTitle = newsModel[indexPath.row].newsLabels
         self.navigationController?.pushViewController(vc!, animated: true)
     }
     
