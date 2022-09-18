@@ -7,13 +7,17 @@
 
 import UIKit
 
+//Detail View definitions
 class DetailViewController: UIViewController {
-
+    
+    // Detail view components
     @IBOutlet weak var detailLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
     
+    // Webview variable
     var webView = webTemplateViewController()
     
+    //Variable for data transfer
     var selectedImageView = UIImage()
     var selectedNews : String = ""
     var selectedTag : Int = 0
@@ -25,21 +29,22 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //Detail view navigation title
         self.navigationItem.title = selectedTitle
         
+        //showing transfer data on the detail view
         detailLabel.text = selectedDetail
         imageView.image = selectedImageView
         
-    
-
-        // Do any additional setup after loading the view.
     }
     
+    //More information button clicked function
     @IBAction func detailButtonClicked(_ sender: Any) {
         
         toTheWebView(tag: selectedTag)
     }
     
+    //Navigate the webview controller
     func viewPusher() -> webTemplateViewController {
         webView = self.storyboard?.instantiateViewController(identifier: "webTemplateViewController") as! webTemplateViewController
         self.navigationController?.pushViewController(webView, animated: true)
@@ -47,6 +52,7 @@ class DetailViewController: UIViewController {
         return webView
     }
     
+    //Which news to show control flow
     func toTheWebView(tag : Int) {
         
         webView = viewPusher()
@@ -71,10 +77,10 @@ class DetailViewController: UIViewController {
             webView.stringValue = "House Of The Dragon"
             webView.titleValue = "House Of The Dragon"
         }
-    
-    
-   
-
-}
+        
+        
+        
+        
+    }
     
 }

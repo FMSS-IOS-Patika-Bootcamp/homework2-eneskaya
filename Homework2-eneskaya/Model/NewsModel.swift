@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 
+// News model news name, news detail, news image
 struct NewsModel {
     let newsImages: UIImage
     let newsLabels: String

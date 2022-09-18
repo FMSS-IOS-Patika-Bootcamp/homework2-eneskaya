@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+//Collection View Cell generate
 class NewsCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var newsImage: UIImageView!
