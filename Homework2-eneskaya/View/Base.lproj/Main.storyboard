@@ -26,7 +26,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="cell" reuseIdentifier="cell" id="2iq-BE-6kE" customClass="NewsCollectionViewCell" customModule="Collection_View" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="cell" reuseIdentifier="cell" id="2iq-BE-6kE" customClass="NewsCollectionViewCell" customModule="Homework2_eneskaya" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="162" height="162"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="a8R-Mk-zOx">
@@ -81,7 +81,7 @@
                     <navigationItem key="navigationItem" title="ekşinews" largeTitleDisplayMode="never" id="yAX-fC-GPZ"/>
                     <connections>
                         <outlet property="newsCollectionView" destination="yB5-6E-kxh" id="fun-96-1W6"/>
-                        <segue destination="tDV-cI-zZk" kind="presentation" identifier="toDetailVC" modalPresentationStyle="fullScreen" id="Ga7-Ac-afW"/>
+                        <segue destination="tDV-cI-zZk" kind="presentation" identifier="toDetailVC" modalPresentationStyle="automatic" id="Ga7-Ac-afW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hmz-eg-tm9" sceneMemberID="firstResponder"/>
@@ -146,15 +146,9 @@
             <objects>
                 <viewController storyboardIdentifier="detailVC" id="tDV-cI-zZk" customClass="DetailViewController" customModule="Homework2_eneskaya" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="J1T-jD-e2q">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="J7g-RP-k6N">
-                                <rect key="frame" x="10" y="44" width="394" height="270"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="270" id="XuK-kx-pwq"/>
-                                </constraints>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x1v-gq-Apr">
                                 <rect key="frame" x="15" y="334" width="384" height="162"/>
                                 <constraints>
@@ -173,17 +167,23 @@
                                     <action selector="detailButtonClicked:" destination="tDV-cI-zZk" eventType="touchUpInside" id="8CV-HK-E3j"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="J7g-RP-k6N">
+                                <rect key="frame" x="10" y="105" width="394" height="270"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="270" id="XuK-kx-pwq"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Hpk-zP-naD"/>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="J7g-RP-k6N" firstAttribute="centerX" secondItem="x1v-gq-Apr" secondAttribute="centerX" id="2VS-tN-BgS"/>
-                            <constraint firstItem="x1v-gq-Apr" firstAttribute="top" secondItem="J7g-RP-k6N" secondAttribute="bottom" constant="20" id="5o5-la-ICo"/>
+                            <constraint firstItem="x1v-gq-Apr" firstAttribute="top" secondItem="J7g-RP-k6N" secondAttribute="bottom" constant="-41" id="5o5-la-ICo"/>
                             <constraint firstItem="4RW-ee-pWT" firstAttribute="trailing" secondItem="J1T-jD-e2q" secondAttribute="trailingMargin" id="GaQ-Io-2bu"/>
                             <constraint firstItem="x1v-gq-Apr" firstAttribute="leading" secondItem="Hpk-zP-naD" secondAttribute="leading" constant="15" id="MZJ-Mt-thS"/>
                             <constraint firstItem="4RW-ee-pWT" firstAttribute="leading" secondItem="Hpk-zP-naD" secondAttribute="leading" constant="198" id="OPU-z5-f98"/>
                             <constraint firstItem="J7g-RP-k6N" firstAttribute="leading" secondItem="Hpk-zP-naD" secondAttribute="leading" constant="10" id="QDU-XO-sJn"/>
-                            <constraint firstItem="J7g-RP-k6N" firstAttribute="top" secondItem="Hpk-zP-naD" secondAttribute="top" id="RAw-v0-fG9"/>
+                            <constraint firstItem="J7g-RP-k6N" firstAttribute="top" secondItem="Hpk-zP-naD" secondAttribute="top" constant="61" id="RAw-v0-fG9"/>
                             <constraint firstItem="4RW-ee-pWT" firstAttribute="top" secondItem="x1v-gq-Apr" secondAttribute="bottom" constant="20" id="jOu-g8-ONM"/>
                             <constraint firstItem="J7g-RP-k6N" firstAttribute="centerX" secondItem="J1T-jD-e2q" secondAttribute="centerX" id="yrP-1Z-ncd"/>
                         </constraints>

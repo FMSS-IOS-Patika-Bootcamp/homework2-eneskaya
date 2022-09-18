@@ -9,6 +9,9 @@ import UIKit
 
 class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
+    var choosenNewsName = ""
+    var choosenImageView = UIImage()
+    
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
@@ -41,18 +44,47 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         return newsModel.count
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let vc = storyboard?.instantiateViewController(withIdentifier: "detailVC") as? DetailViewController
+        vc?.selectedNews = newsModel[indexPath.row].newsLabels
+        vc?.selectedImageView = newsModel[indexPath.row].newsImages
+        vc?.selectedTag = indexPath.row
+        self.navigationController?.pushViewController(vc!, animated: true)
+    }
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell: NewsCollectionViewCell = newsCollectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! NewsCollectionViewCell
         
         cell.configure(model: newsModel[indexPath.row])
         
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.toTheWebView(_:)))
+        /*let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.toTheDetailVC(_:)))
+        
+        
         cell.isUserInteractionEnabled = true
         cell.contentView.tag = indexPath.row
         cell.contentView.addGestureRecognizer(tapGestureRecognizer)
         
+        choosenImageView = cell.newsImage.image ?? UIImage(named: "gta6")!
+        choosenNewsName = cell.newsLabel.text ?? "gta6"
+       */
+        
         return cell
+        
+        
+    }
+    @objc func toTheDetailVC(_ sender: AnyObject){
+        performSegue(withIdentifier: "toDetailVC", sender: nil)
+               
+    }
+    
+    override  func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toDetailVC"{
+            let destinationVC = segue.destination as! DetailViewController
+            destinationVC.selectedImageView = choosenImageView
+            destinationVC.selectedNews = choosenNewsName
+            
+        }
     }
     
     func viewPusher() -> webTemplateViewController {
