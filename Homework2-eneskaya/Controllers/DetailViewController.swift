@@ -17,7 +17,7 @@ class DetailViewController: UIViewController {
     var selectedImageView = UIImage()
     var selectedNews : String = ""
     var selectedTag : Int = 0
-    
+    var selectedDetail : String = ""
     var stringValue: String?
     var titleValue: String?
     
@@ -25,7 +25,7 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         
         
-        detailLabel.text = selectedNews
+        detailLabel.text = selectedDetail
         imageView.image = selectedImageView
         
     
